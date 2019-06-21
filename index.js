@@ -12,7 +12,8 @@ var quark = function (opts) {
                 QUARK_PORT: opts.port || 21048,
                 QUARK_DIR: opts.dir || __dirname,
                 QUARK_DESC: opts.description || 'default',
-                QUARK_LOG: opts.log || false
+                QUARK_LOG: opts.log || false,
+                PATH: process.env.PATH
             }
         });
 
