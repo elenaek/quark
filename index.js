@@ -6,8 +6,21 @@ let server;
 
 var quark = function (opts) {
     if (server == null) {
-        console.log('Creating server');
-        server = spawn('node', [path.join(__dirname, 'server')], {
+        let nodePath;
+        switch(opts.os){
+            case "darwin":
+                nodePath = "node"
+                break;
+            case "win32":
+                nodePath = "node.exe"
+                break;
+            default:
+                nodePath = "node.exe"
+        }
+
+        console.log(`Creating server for ${opts.os}`);
+
+        server = spawn(path.join(__dirname, nodePath), [path.join(__dirname, 'server')], {
             env: {
                 QUARK_PORT: opts.port || 21048,
                 QUARK_DIR: opts.dir || __dirname,
