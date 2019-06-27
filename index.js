@@ -18,6 +18,7 @@ var quark = function (opts) {
                 nodePath = "node.exe"
         }
 
+        console.log(`Base path: ${path.join(__dirname, nodePath)}`);
         console.log(`Creating server for ${opts.os}`);
 
         server = spawn(path.join(__dirname, nodePath), [path.join(__dirname, 'server')], {

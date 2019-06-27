@@ -1,7 +1,7 @@
 {
   "name": "electron-quark",
-  "version": "1.0.6",
-  "description": "Backend http web server for electron",
+  "version": "1.0.7",
+  "description": "Backend http web server for electron (forked)",
   "main": "index.js",
   "scripts": {
     "test": "node test",
