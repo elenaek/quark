@@ -18,10 +18,10 @@ var quark = function (opts) {
                 nodePath = "node.exe"
         }
 
-        console.log(`Base path: ${path.join(__dirname, nodePath).replace('app.asar', 'app.asar.unpacked')}`);
+        console.log(`Base path: ${path.join(__dirname, nodePath).replace(/(app.asar)\.?[\w]*/g, 'app.asar.unpacked')}`);
         console.log(`Creating server for ${opts.os}`);
 
-        server = spawn(path.join(__dirname, nodePath).replace('app.asar','app.asar.unpacked'), [path.join(__dirname, 'server')], {
+        server = spawn(path.join(__dirname, nodePath).replace(/(app.asar)\.?[\w]*/g,'app.asar.unpacked'), [path.join(__dirname, 'server')], {
             env: {
                 QUARK_PORT: opts.port || 21048,
                 QUARK_DIR: opts.dir || __dirname,
